@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>git常用命令</title>
+    <url>/2020/02/24/10.git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="初始化目录"><a href="#初始化目录" class="headerlink" title="初始化目录"></a>初始化目录</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure><h1 id="提交文件到缓存区"><a href="#提交文件到缓存区" class="headerlink" title="提交文件到缓存区"></a>提交文件到缓存区</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add readme.txt</span><br></pre></td></tr></table></figure><h1 id="提交文件到仓库"><a href="#提交文件到仓库" class="headerlink" title="提交文件到仓库"></a>提交文件到仓库</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;wrote a readme file&quot;   #-m后面是对于本次提交的注释说明</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+
+
+
+<h1 id="可以多次add不同文件，一次提交多个文件"><a href="#可以多次add不同文件，一次提交多个文件" class="headerlink" title="可以多次add不同文件，一次提交多个文件"></a>可以多次add不同文件，一次提交多个文件</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add file1.txt</span><br><span class="line">git add file2.txt file3.txt</span><br><span class="line">git commit -m &quot;add 3 files.&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看当前仓库状态"><a href="#查看当前仓库状态" class="headerlink" title="查看当前仓库状态"></a>查看当前仓库状态</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看文件上次提交的差异"><a href="#查看文件上次提交的差异" class="headerlink" title="查看文件上次提交的差异"></a>查看文件上次提交的差异</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git diff readme.txt</span><br></pre></td></tr></table></figure>
+<h1 id="查看提交历史记录"><a href="#查看提交历史记录" class="headerlink" title="查看提交历史记录"></a>查看提交历史记录</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+<h2 id="简版显示提交历史记录"><a href="#简版显示提交历史记录" class="headerlink" title="简版显示提交历史记录"></a>简版显示提交历史记录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log --pretty=oneline</span><br></pre></td></tr></table></figure>
+
+<h1 id="回退上一个版本"><a href="#回退上一个版本" class="headerlink" title="回退上一个版本"></a>回退上一个版本</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+<h1 id="回退指定版本"><a href="#回退指定版本" class="headerlink" title="回退指定版本"></a>回退指定版本</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard 1094a</span><br></pre></td></tr></table></figure>
+<h1 id="查看所有命令历史记录-git-log在回退版本后会看不到回退前版本的记录，reflog可以看所有记录"><a href="#查看所有命令历史记录-git-log在回退版本后会看不到回退前版本的记录，reflog可以看所有记录" class="headerlink" title="查看所有命令历史记录(git log在回退版本后会看不到回退前版本的记录，reflog可以看所有记录)"></a>查看所有命令历史记录(git log在回退版本后会看不到回退前版本的记录，reflog可以看所有记录)</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+<h1 id="查看工作区和版本库里面最新版本的区别-当前文件夹为工作区，add后是暂存区"><a href="#查看工作区和版本库里面最新版本的区别-当前文件夹为工作区，add后是暂存区" class="headerlink" title="查看工作区和版本库里面最新版本的区别(当前文件夹为工作区，add后是暂存区)"></a>查看工作区和版本库里面最新版本的区别(当前文件夹为工作区，add后是暂存区)</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git diff HEAD -- readme.txt</span><br></pre></td></tr></table></figure>
+
+<h1 id="将工作区文件恢复版本库版本"><a href="#将工作区文件恢复版本库版本" class="headerlink" title="将工作区文件恢复版本库版本"></a>将工作区文件恢复版本库版本</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -- readme.txt</span><br></pre></td></tr></table></figure>
+<h2 id="会有两种情况："><a href="#会有两种情况：" class="headerlink" title="会有两种情况："></a>会有两种情况：</h2><h3 id="一种是readme-txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；"><a href="#一种是readme-txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；" class="headerlink" title="一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；"></a>一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</h3><h3 id="一种是readme-txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。"><a href="#一种是readme-txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。" class="headerlink" title="一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。"></a>一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</h3><h1 id="将暂存区文件版本丢弃，放回工作区"><a href="#将暂存区文件版本丢弃，放回工作区" class="headerlink" title="将暂存区文件版本丢弃，放回工作区"></a>将暂存区文件版本丢弃，放回工作区</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset HEAD readme.txt</span><br></pre></td></tr></table></figure>
+
+<h1 id="从版本库删除文件"><a href="#从版本库删除文件" class="headerlink" title="从版本库删除文件"></a>从版本库删除文件</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git rm test.txt</span><br><span class="line">git commit -m &quot;remove test.txt&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建分支并切换到分支"><a href="#创建分支并切换到分支" class="headerlink" title="创建分支并切换到分支"></a>创建分支并切换到分支</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b dev</span><br><span class="line">或</span><br><span class="line">git branch dev</span><br><span class="line">git checkout dev</span><br><span class="line">或</span><br><span class="line">git switch -c dev</span><br></pre></td></tr></table></figure>
+<h2 id="查看当前分支，列出所有分支，当前分支前面会标一个-号"><a href="#查看当前分支，列出所有分支，当前分支前面会标一个-号" class="headerlink" title="查看当前分支，列出所有分支，当前分支前面会标一个*号"></a>查看当前分支，列出所有分支，当前分支前面会标一个*号</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<h2 id="切换回主分支"><a href="#切换回主分支" class="headerlink" title="切换回主分支"></a>切换回主分支</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">或</span><br><span class="line">git switch master</span><br></pre></td></tr></table></figure>
+
+<h2 id="将指定分支合并到当前分支"><a href="#将指定分支合并到当前分支" class="headerlink" title="将指定分支合并到当前分支"></a>将指定分支合并到当前分支</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">快速合并</span><br><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通模式合并分支，可以通过log查看分支信息</span><br><span class="line">git merge --no-ff -m &quot;merge with no-ff&quot; dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看合并冲突"><a href="#查看合并冲突" class="headerlink" title="查看合并冲突"></a>查看合并冲突</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+<p>合并冲突时要手动修改文件并提交</p>
+<h2 id="查看分支合并情况"><a href="#查看分支合并情况" class="headerlink" title="查看分支合并情况"></a>查看分支合并情况</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log --graph --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+<h2 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -d dev</span><br></pre></td></tr></table></figure>
+
+<h1 id="本地仓库关联码云"><a href="#本地仓库关联码云" class="headerlink" title="本地仓库关联码云"></a>本地仓库关联码云</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote add origin git@gitee.com:chinantfy/learngit.git</span><br></pre></td></tr></table></figure>
+<h1 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<h1 id="删除远程库"><a href="#删除远程库" class="headerlink" title="删除远程库"></a>删除远程库</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure>
+<h1 id="推送到gitee"><a href="#推送到gitee" class="headerlink" title="推送到gitee"></a>推送到gitee</h1><p>首次推送时加-u参数Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push -u origin master</span><br><span class="line">git push github master</span><br></pre></td></tr></table></figure>
+<h1 id="本地仓库关联github"><a href="#本地仓库关联github" class="headerlink" title="本地仓库关联github"></a>本地仓库关联github</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote add github git@github.com:chinantfy/learngit.git</span><br></pre></td></tr></table></figure>
+<h1 id="暂时封存现在分支状态，在不提交的情况下就可以切换分支（默认有文件未提交时无法切换分支）"><a href="#暂时封存现在分支状态，在不提交的情况下就可以切换分支（默认有文件未提交时无法切换分支）" class="headerlink" title="暂时封存现在分支状态，在不提交的情况下就可以切换分支（默认有文件未提交时无法切换分支）"></a>暂时封存现在分支状态，在不提交的情况下就可以切换分支（默认有文件未提交时无法切换分支）</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<h2 id="切换回封存的分支后"><a href="#切换回封存的分支后" class="headerlink" title="切换回封存的分支后"></a>切换回封存的分支后</h2><h3 id="查看封存状态"><a href="#查看封存状态" class="headerlink" title="查看封存状态"></a>查看封存状态</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>
+<h3 id="恢复状态"><a href="#恢复状态" class="headerlink" title="恢复状态"></a>恢复状态</h3><h4 id="恢复状态并删除stash"><a href="#恢复状态并删除stash" class="headerlink" title="恢复状态并删除stash"></a>恢复状态并删除stash</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+<h4 id="恢复状态，删除stash"><a href="#恢复状态，删除stash" class="headerlink" title="恢复状态，删除stash"></a>恢复状态，删除stash</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git stash apply stash@&#123;0&#125;</span><br><span class="line">git stash drop stash@&#123;0&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="复制一个特定的提交到当前分支"><a href="#复制一个特定的提交到当前分支" class="headerlink" title="复制一个特定的提交到当前分支"></a>复制一个特定的提交到当前分支</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git cherry-pick 4c805e2</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>git常用命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python基础命令</title>
+    <url>/2020/01/11/09.python%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>python基础命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>anaconda配置及常用命令</title>
+    <url>/2020/01/11/08.anaconda%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pacman -S anaconda</span><br></pre></td></tr></table></figure><p>在 ~/.bashrc 中添加</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=/opt/anaconda/bin:$PATH</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+<p>激活</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source /opt/anaconda/bin/activate root</span><br></pre></td></tr></table></figure>
+<p>zsh修改 ~/.zshrc</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=/opt/anaconda/bin:$PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h1 id="conda常用命令"><a href="#conda常用命令" class="headerlink" title="conda常用命令"></a>conda常用命令</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 创建一个名为python34的环境，指定Python版本是3.4</span><br><span class="line">conda create --name python34 python=3.4</span><br><span class="line"></span><br><span class="line"># 激活某个环境</span><br><span class="line">activate python34 # for Windows</span><br><span class="line">source activate python34 # for Linux &amp; Mac</span><br><span class="line"></span><br><span class="line">deactivate python34 # for Windows</span><br><span class="line">source deactivate python34 # for Linux &amp; Mac</span><br><span class="line"></span><br><span class="line"># 删除一个已有的环境</span><br><span class="line">conda remove --n python34 --all</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="right">python环境目录</th>
+<th><code>~/anaconda/envs</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">查看已安装的环境</td>
+<td><code>conda info -e</code></td>
+</tr>
+</tbody></table>
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 安装xxxx</span><br><span class="line">conda install xxxx</span><br><span class="line"></span><br><span class="line"># 查看当前环境下已安装的包</span><br><span class="line">conda list</span><br><span class="line"></span><br><span class="line"># 查看某个指定环境的已安装包</span><br><span class="line">conda list -n python34</span><br><span class="line"></span><br><span class="line"># 查找package信息</span><br><span class="line">conda search numpy</span><br><span class="line"></span><br><span class="line"># 安装package</span><br><span class="line">conda install -n python34 numpy # 如果不用-n指定环境名称，则被安装在当前活跃环境 也可以通过-c指定通过某个channel安装</span><br></pre></td></tr></table></figure>
+
+<p>参考链接：<a href="https://blog.csdn.net/guan__hua/article/details/61240932" target="_blank" rel="noopener">https://blog.csdn.net/guan__hua/article/details/61240932</a></p>
+<h2 id="Conda-更新"><a href="#Conda-更新" class="headerlink" title="Conda 更新"></a>Conda 更新</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 更新package</span><br><span class="line">conda update -n python34 numpy</span><br><span class="line"></span><br><span class="line"># 删除package</span><br><span class="line">conda remove -n python34 numpy</span><br><span class="line"></span><br><span class="line"># 更新conda，保持conda最新</span><br><span class="line">conda update conda</span><br><span class="line"></span><br><span class="line"># 更新anaconda</span><br><span class="line">conda update anaconda</span><br><span class="line"></span><br><span class="line"># 更新python</span><br><span class="line">conda update python</span><br></pre></td></tr></table></figure>
+
+<h2 id="Conda-源"><a href="#Conda-源" class="headerlink" title="Conda 源"></a>Conda 源</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加Anaconda的TUNA镜像</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line"># TUNA的help中镜像地址加有引号，需要去掉</span><br><span class="line"></span><br><span class="line"># 设置搜索时显示通道地址</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+
+<h2 id="Clone环境"><a href="#Clone环境" class="headerlink" title="Clone环境"></a>Clone环境</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n BBB --clone ~/path</span><br><span class="line">或者</span><br><span class="line">conda create -n BBB --clone AAA</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="pip中国源"><a href="#pip中国源" class="headerlink" title="pip中国源"></a>pip中国源</h1><p>常用中国源：</p>
+<p>清华：<a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>阿里云：<a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a></p>
+<p>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
+<p>华中理工大学：<a href="http://pypi.hustunique.com/" target="_blank" rel="noopener">http://pypi.hustunique.com/</a></p>
+<p>山东理工大学：<a href="http://pypi.sdutlinux.org/" target="_blank" rel="noopener">http://pypi.sdutlinux.org/</a> </p>
+<p>豆瓣：<a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a></p>
+<h2 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyspider</span><br></pre></td></tr></table></figure>
+
+<h2 id="Windows下"><a href="#Windows下" class="headerlink" title="Windows下"></a>Windows下</h2><p>C:\Users\xx\pip，新建文件pip.ini</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="Linux下"><a href="#Linux下" class="headerlink" title="Linux下"></a>Linux下</h2><p>~/.pip/pip.conf   没有就创建一个文件夹及文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/.pip/</span><br><span class="line">touch ~/.pip/pip.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>manjaro</category>
+      </categories>
+      <tags>
+        <tag>anaconda</tag>
+        <tag>pip中国源</tag>
+        <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Terminator配置</title>
+    <url>/2020/01/11/07.terminator%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>terminator 自用配置备份<br>gedit ~/.config/terminator/config</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[global_config]</span><br><span class="line">  focus = system</span><br><span class="line">  suppress_multiple_term_dialog = True</span><br><span class="line">  title_transmit_bg_color = &quot;#d30102&quot;</span><br><span class="line">[keybindings]</span><br><span class="line">[layouts]</span><br><span class="line">  [[default]]</span><br><span class="line">    [[[child1]]]</span><br><span class="line">      parent = window0</span><br><span class="line">      profile = default</span><br><span class="line">      type = Terminal</span><br><span class="line">    [[[window0]]]</span><br><span class="line">      parent = &quot;&quot;</span><br><span class="line">      type = Window</span><br><span class="line">[plugins]</span><br><span class="line">[profiles]</span><br><span class="line">  [[default]]</span><br><span class="line">    background_color = &quot;#002b36&quot;</span><br><span class="line">    background_darkness = 0.76</span><br><span class="line">    background_type = transparent</span><br><span class="line">    copy_on_selection = True</span><br><span class="line">    cursor_color = &quot;#eee8d5&quot;</span><br><span class="line">    font = Hack 16</span><br><span class="line">    foreground_color = &quot;#839496&quot;</span><br><span class="line">    palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;</span><br><span class="line">    show_titlebar = False</span><br><span class="line">    use_system_font = False</span><br><span class="line">  [[solarized-dark]]</span><br><span class="line">    background_color = &quot;#002b36&quot;</span><br><span class="line">    cursor_color = &quot;#eee8d5&quot;</span><br><span class="line">    foreground_color = &quot;#839496&quot;</span><br><span class="line">    palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;</span><br><span class="line">  [[solarized-light]]</span><br><span class="line">    background_color = &quot;#fdf6e3&quot;</span><br><span class="line">    cursor_color = &quot;#002b36&quot;</span><br><span class="line">    foreground_color = &quot;#657b83&quot;</span><br><span class="line">    palette = &quot;#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3&quot;</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+<p>效果图如下：</p>
+<img src="/2020/01/11/07.terminator%E9%85%8D%E7%BD%AE/1.png" class title="This is an example image">]]></content>
+      <categories>
+        <category>manjaro</category>
+      </categories>
+      <tags>
+        <tag>terminator</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo配置过程</title>
+    <url>/2019/11/18/05.hexo%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="更换next主题"><a href="#更换next主题" class="headerlink" title="更换next主题"></a>更换next主题</h1><p>hexo根目录执行</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+<p>修改hexo配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit _config.yml    #或者vim_config.yml</span><br></pre></td></tr></table></figure>
+<p>修改</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h1 id="增加标签和分类"><a href="#增加标签和分类" class="headerlink" title="增加标签和分类"></a>增加标签和分类</h1><p>修改主题的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit ./themes/next/_config.yml</span><br></pre></td></tr></table></figure>
+
+<p>修改</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scheme: Mist    #主题细类</span><br></pre></td></tr></table></figure>
+<p>下面三行去掉前面的#号</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tags: /tags/ || tags   #标签</span><br><span class="line">categories: /categories/ || th  #分类</span><br><span class="line">archives: /archives/ || archive  #归档</span><br></pre></td></tr></table></figure>
+
+<p>hexo根目录执行命令，创建标签和分类的目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;archives&quot;</span><br><span class="line">hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure>
+
+<p>修改标签目录下的md文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit ./source/tags/index.md</span><br></pre></td></tr></table></figure>
+
+<p>内容修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2019-11-13 00:05:40</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>同理分类目录下的md文件修改为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2019-11-13 00:04:08</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g #重新生成配置文件</span><br></pre></td></tr></table></figure>
+
+<p>在博客的md文件中开头加入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: hexo配置过程</span><br><span class="line">date: 2019-11-18 00:06:02</span><br><span class="line">categories: hexo</span><br><span class="line">tags: </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>博客就会自动添加进分类和标签目录</p>
+<h1 id="添加本地搜索"><a href="#添加本地搜索" class="headerlink" title="添加本地搜索"></a>添加本地搜索</h1><p>安装插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>修改博客配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit _config.yml</span><br></pre></td></tr></table></figure>
+
+<p>添加</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">    path: search.xml</span><br><span class="line">    field: post</span><br><span class="line">    format: html</span><br><span class="line">    limit: 10000</span><br></pre></td></tr></table></figure>
+
+<p>修改主题配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit ./themes/next/_config.yml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">local_search:</span><br><span class="line">    enable: true</span><br></pre></td></tr></table></figure>
+
+<p>重新部署就可以使用搜索功能</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo博客中加入图片</title>
+    <url>/2019/11/17/06.hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p>编辑hexo配置文件_config.yml</p><p>post_asset_folder: true</p><p>运行<code>hexo n &quot;xxxx&quot;</code>来生成md博文时，<code>/source/_posts</code>文件夹内除了<code>xxxx.md</code>文件还有一个同名的文件夹，博客用到的图片放到同名文件夹内，博客md文件中调用时直接用</p><a id="more"></a>
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% asset_img 7.png This is an example image %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中7.png是图片名字，md文件中无法预览，但是生成的博客中可以看到</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo博客中加入图片</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MANJARO 安装nexo并部署到码云</title>
+    <url>/2019/11/17/04.%E5%AE%89%E8%A3%85nexo%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A0%81%E4%BA%91/</url>
+    <content><![CDATA[<h1 id="确认node-js环境以及它的包管理工具是否安装成功"><a href="#确认node-js环境以及它的包管理工具是否安装成功" class="headerlink" title="确认node.js环境以及它的包管理工具是否安装成功"></a>确认node.js环境以及它的包管理工具是否安装成功</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node --version</span><br><span class="line">npm --version   #manjaro默认没有按照npm，需要执行sudo pacman -S npm 安装</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+<h1 id="将npm的下载源更换为国内的淘宝镜像"><a href="#将npm的下载源更换为国内的淘宝镜像" class="headerlink" title="将npm的下载源更换为国内的淘宝镜像"></a>将npm的下载源更换为国内的淘宝镜像</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h1 id="通过npm来安装Hexo"><a href="#通过npm来安装Hexo" class="headerlink" title="通过npm来安装Hexo"></a>通过npm来安装Hexo</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo npm install -g hexo-cli  #亲测不用sudo的话manjaro下会提示无权限</span><br></pre></td></tr></table></figure>
+<h1 id="搭建hexo博客"><a href="#搭建hexo博客" class="headerlink" title="搭建hexo博客"></a>搭建hexo博客</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init blog   #注意：执行此命令后会在当前目录下新建blog文件夹</span><br><span class="line">cd blog</span><br><span class="line">ls -lR</span><br></pre></td></tr></table></figure>
+<h1 id="生成博客"><a href="#生成博客" class="headerlink" title="生成博客"></a>生成博客</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<h1 id="启动博客服务"><a href="#启动博客服务" class="headerlink" title="启动博客服务"></a>启动博客服务</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>服务启动后显示如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>这时候用浏览器访问<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 就可以访问刚刚搭建的本地hexo博客，Ctrl+C停止服务;</p>
+<p>如果要修改服务器使用的端口，可以在启动服务器的时候加上-p参数；如果希望服务器启动后，自动打开默认的浏览器访问服务器，可以使用-o参数，如下所示。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s -p 8000 -o</span><br></pre></td></tr></table></figure>
+<h1 id="修改博客配置文件"><a href="#修改博客配置文件" class="headerlink" title="修改博客配置文件"></a>修改博客配置文件</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
+<p>下面是YAML文件中相关选项的说明。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>网站的标题</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>网站的副标题</td>
+</tr>
+<tr>
+<td>description</td>
+<td>网站的描述</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>网站的关键词，可以用逗号分隔多个关键词</td>
+</tr>
+<tr>
+<td>author</td>
+<td>自己的名字</td>
+</tr>
+<tr>
+<td>language</td>
+<td>网站使用的语言</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>网站使用时区，默认使用电脑上设置的时区</td>
+</tr>
+<tr>
+<td>url</td>
+<td>网址</td>
+</tr>
+<tr>
+<td>root</td>
+<td>网站根目录</td>
+</tr>
+<tr>
+<td>source_dir</td>
+<td>资源文件夹，这个文件夹用来存放内容，默认source目录</td>
+</tr>
+<tr>
+<td>public_dir</td>
+<td>公共文件夹，这个文件夹用于存放生成的站点文件，默认public目录</td>
+</tr>
+<tr>
+<td>tag_dir</td>
+<td>标签文件夹，默认tags目录</td>
+</tr>
+<tr>
+<td>archive_dir</td>
+<td>归档文件夹，默认archives目录</td>
+</tr>
+<tr>
+<td>category_dir</td>
+<td>分类文件夹，默认categories目录</td>
+</tr>
+<tr>
+<td>auto_spacing</td>
+<td>在中文和英文之间加入空格，默认false</td>
+</tr>
+<tr>
+<td>titlecase</td>
+<td>把标题转换为首字母大写，默认false</td>
+</tr>
+<tr>
+<td>external_link</td>
+<td>在新标签中打开链接，默认true</td>
+</tr>
+<tr>
+<td>relative_link</td>
+<td>把链接改为与根目录的相对位址，默认false</td>
+</tr>
+<tr>
+<td>default_category</td>
+<td>默认分类</td>
+</tr>
+<tr>
+<td>date_format</td>
+<td>日期格式，默认YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>time_format</td>
+<td>时间格式，默认HH:mm:ss</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>每页显示的文章数量 ，默认值10，0表示不使用分页</td>
+</tr>
+<tr>
+<td>pagination_dir</td>
+<td>分页目录，默认为page目录</td>
+</tr>
+<tr>
+<td>theme</td>
+<td>当前主题名称</td>
+</tr>
+<tr>
+<td>deploy</td>
+<td>部署部分的设置</td>
+</tr>
+</tbody></table>
+<p>我们将编写好的Markdown文件可以拷贝到source/_posts目录，<br>我们可以在每个Markdown文件的上方添加Front-matter来对文件的布局、标题、分类、标签、发布日期等信息加以说明。所谓Front-matter，就是每个Markdown文件最上方以—分隔的区域，可以在Front-matter中设置以下内容。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>layout</td>
+<td>布局</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题</td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>建立日期</td>
+<td>文件建立日期</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>更新日期</td>
+<td>文件更新日期</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>开启文章的评论功能</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>标签（不适用于分页）</td>
+<td></td>
+</tr>
+<tr>
+<td>categories</td>
+<td>分类（不适用于分页）</td>
+<td></td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>覆盖文章网址</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Python编程惯例</span><br><span class="line">category: Python基础</span><br><span class="line">date: 2019-8-1</span><br><span class="line">---</span><br><span class="line"># Python惯例</span><br><span class="line"></span><br><span class="line">“惯例”这个词指的是“习惯的做法，常规的办法，一贯的做法”，与这个词对应的英文单词叫“idiom”。由于Python跟其他很多编程语言在语法和使用上还是有比较显著的差别，因此作为一个Python开发者如果不能掌握这些惯例，就无法写出“Pythonic”的代码。下面我们总结了一些在Python开发中的惯用的代码。</span><br><span class="line"></span><br><span class="line">1. 让代码既可以被导入又可以被执行。</span><br><span class="line">   if __name__ == &apos;__main__&apos;:</span><br><span class="line"></span><br><span class="line">2. 用下面的方式判断逻辑“真”或“假”。</span><br><span class="line">   if x:</span><br><span class="line">   if not x:</span><br></pre></td></tr></table></figure>
+<p>完成之后执行如下命令重启hexo服务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<h1 id="托管到码云"><a href="#托管到码云" class="headerlink" title="托管到码云"></a>托管到码云</h1><h2 id="在码云新建仓库hexo"><a href="#在码云新建仓库hexo" class="headerlink" title="在码云新建仓库hexo"></a>在码云新建仓库hexo</h2><h2 id="修改博客项目的配置文件-config-yml"><a href="#修改博客项目的配置文件-config-yml" class="headerlink" title="修改博客项目的配置文件_config.yml"></a>修改博客项目的配置文件_config.yml</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 省略上面的内容</span><br><span class="line"># Deployment</span><br><span class="line"># Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://gitee.com/chinantfy/hexo.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>上面的配置中，type指定了使用git进行项目部署，repo指定了部署项目的git仓库的URL，我们这里使用的是HTTPS的地址，如果之前配置过密钥对也可以使用SSH的地址，branch指定了将代码同步到仓库中的哪一个分支，通常master分支就是发布项目最终工作成果的分支，也称为项目的主分支。<br>##3.上面的配置中，type指定了使用git进行项目部署，repo指定了部署项目的git仓库的URL，我们这里使用的是HTTPS的地址，如果之前配置过密钥对也可以使用SSH的地址，branch指定了将代码同步到仓库中的哪一个分支，通常master分支就是发布项目最终工作成果的分支，也称为项目的主分支。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h2 id="设置gitee账号和邮箱"><a href="#设置gitee账号和邮箱" class="headerlink" title="设置gitee账号和邮箱"></a>设置gitee账号和邮箱</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;YourName&quot; </span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="可以使用下面的命令来实现一键部署到Gitee"><a href="#可以使用下面的命令来实现一键部署到Gitee" class="headerlink" title="可以使用下面的命令来实现一键部署到Gitee"></a>可以使用下面的命令来实现一键部署到Gitee</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo deploy -g</span><br><span class="line">或者</span><br><span class="line">hexo generate -d</span><br></pre></td></tr></table></figure>
+<p>如果没有配置ssh秘钥，此处会需要输入gitee账号和密码</p>
+<h2 id="开启gitee-pages"><a href="#开启gitee-pages" class="headerlink" title="开启gitee.pages"></a>开启gitee.pages</h2><p>码云仓库主界面点击服务》gitee pages</p>
+<img src="/2019/11/17/04.%E5%AE%89%E8%A3%85nexo%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A0%81%E4%BA%91/7.png" class title="This is an example image">
+
+<img src="/2019/11/17/04.%E5%AE%89%E8%A3%85nexo%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A0%81%E4%BA%91/8.png" class title="This is an example image">
+
+
+
+<p>访问<a href="https://chinantfy.gitee.io/hexo" target="_blank" rel="noopener">https://chinantfy.gitee.io/hexo</a> 就可以打开博客，之后每次修改博客内容之后需要更新Gitee Pages。</p>
+<h2 id="访问码云的博客地址css不起作用，本地博客显示正常"><a href="#访问码云的博客地址css不起作用，本地博客显示正常" class="headerlink" title="访问码云的博客地址css不起作用，本地博客显示正常"></a>访问码云的博客地址css不起作用，本地博客显示正常</h2><img src="/2019/11/17/04.%E5%AE%89%E8%A3%85nexo%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A0%81%E4%BA%91/6.png" class title="This is an example image">
+
+<img src="/2019/11/17/04.%E5%AE%89%E8%A3%85nexo%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A0%81%E4%BA%91/2.png" class title="This is an example image">
+
+
+
+<p>解决方法：</p>
+<p>编辑博客配置文件_config.yml</p>
+<p>root: / </p>
+<p>修改为</p>
+<p>root: /hexo/</p>
+<p>hexo是码云的项目名称</p>
+<p>修改完之后</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g </span><br><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure>
+
+<p>码云上的博客就访问正常了</p>
+<h2 id="配置gitee-ssh秘钥"><a href="#配置gitee-ssh秘钥" class="headerlink" title="配置gitee ssh秘钥"></a>配置gitee ssh秘钥</h2><h3 id="生成秘钥对"><a href="#生成秘钥对" class="headerlink" title="生成秘钥对"></a>生成秘钥对</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>连按三次enter键，会看到生成了 一个id_rsa.pub文件</p>
+<h3 id="将秘钥添加码云"><a href="#将秘钥添加码云" class="headerlink" title="将秘钥添加码云"></a>将秘钥添加码云</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>复制秘钥内容<br>粘贴地址   <a href="https://gitee.com/profile/sshkeys" target="_blank" rel="noopener">https://gitee.com/profile/sshkeys</a></p>
+<img src="/2019/11/17/04.%E5%AE%89%E8%A3%85nexo%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A0%81%E4%BA%91/3.png" class title="This is an example image">
+
+<h3 id="测试秘钥连接"><a href="#测试秘钥连接" class="headerlink" title="测试秘钥连接"></a>测试秘钥连接</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
+<p>manjaro18.1 报错如下</p>
+<img src="/2019/11/17/04.%E5%AE%89%E8%A3%85nexo%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A0%81%E4%BA%91/4.png" class title="This is an example image">
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p>文件添加一句</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IPQoS lowdelay throughput</span><br></pre></td></tr></table></figure>
+<p>再次执行ssh -T <a href="mailto:git@gitee.com" target="_blank" rel="noopener">git@gitee.com</a> 会显示</p>
+<img src="/2019/11/17/04.%E5%AE%89%E8%A3%85nexo%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A0%81%E4%BA%91/5.png" class title="This is an example image">
+
+
+
+<h3 id="修改博客访问gitee方式为ssh"><a href="#修改博客访问gitee方式为ssh" class="headerlink" title="修改博客访问gitee方式为ssh"></a>修改博客访问gitee方式为ssh</h3><p>修改博客项目的配置文件_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">repo: https://gitee.com/chinantfy/hexo.git 修改为</span><br><span class="line">repo: git@gitee.com:chinantfy/hexo.git #更换gitee登陆方式为ssh</span><br></pre></td></tr></table></figure>
+
+<p>再执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo deploy -g</span><br></pre></td></tr></table></figure>
+
+<p>这时候就不要输入账号密码了</p>
+<h1 id="npm报错-fsevents"><a href="#npm报错-fsevents" class="headerlink" title="npm报错 fsevents"></a>npm报错 fsevents</h1><p>npm报错 fsevents，忽略即可<br>npm notice created a lockfile as package-lock.json. You should commit this file.<br>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: <a href="mailto:fsevents@1.2.9" target="_blank" rel="noopener">fsevents@1.2.9</a> (node_modules/nunjucks/node_modules/fsevents):<br>npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for <a href="mailto:fsevents@1.2.9" target="_blank" rel="noopener">fsevents@1.2.9</a>: wanted {“os”:”darwin”,”arch”:”any”} (current: {“os”:”linux”,”arch”:”x64”})<br>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: <a href="mailto:fsevents@2.1.2" target="_blank" rel="noopener">fsevents@2.1.2</a> (node_modules/fsevents):<br>npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for <a href="mailto:fsevents@2.1.2" target="_blank" rel="noopener">fsevents@2.1.2</a>: wanted {“os”:”darwin”,”arch”:”any”} (current: {“os”:”linux”,”arch”:”x64”})</p>
+]]></content>
+      <categories>
+        <category>manjaro</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>manjaro安装nexo并部署到码云</tag>
+        <tag>访问码云的博客地址css不起作用但是本地博客显示正常</tag>
+        <tag>npm报错 fsevents</tag>
+        <tag>manjaro连接ssh gitee 报错Broken pipe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>visual code去除标题栏</title>
+    <url>/2019/11/12/03.vscode%E5%8E%BB%E9%99%A4%E6%A0%87%E9%A2%98%E6%A0%8F/</url>
+    <content><![CDATA[<p>在设置Visual Studio Code的窗口中，有Title Bar Style选项可以设置,选择custom ，就可以去掉大大的标题栏，其他系统中此方法应该也可以。</p>]]></content>
+      <categories>
+        <category>manjaro</category>
+      </categories>
+      <tags>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MANJARO 命令审计</title>
+    <url>/2019/11/12/02.MANJARO%E5%91%BD%E4%BB%A4%E5%AE%A1%E8%AE%A1/</url>
+    <content><![CDATA[<h1 id="bash下配置"><a href="#bash下配置" class="headerlink" title="bash下配置"></a>bash下配置</h1><p>最近在折腾manjaro xfce 版本，实现命令审计参考如下博客<br><a href="https://blog.51cto.com/13227377/2159238" target="_blank" rel="noopener">https://blog.51cto.com/13227377/2159238</a><br>具体操作如下:<br>在/etc/profile后面添加</p><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#history</span><br><span class="line">export HISTSIZE=4096</span><br><span class="line">DT=`date +&quot;%Y-%m-%d&quot;`</span><br><span class="line">export HISTFILE=&quot;/opt/history/$&#123;LOGNAME&#125;_history.log&quot;</span><br><span class="line">chmod 600 /opt/history/$&#123;LOGNAME&#125; 2&gt;/dev/null</span><br><span class="line">export PROMPT_COMMAND=&apos;&#123; date &quot;+%Y-%m-%d %T  #### $(whoami)  #### $(history 1 | &#123; read x cmd; echo &quot;$cmd&quot;; &#125;)&quot;; &#125;&gt;&gt;$HISTFILE&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="添加完发现PROMPT-COMMAND变量没有生效，也就是打开log文件里log的记录格式没有改变，后来发现用户环境变量重置了PROMPT-COMMAND"><a href="#添加完发现PROMPT-COMMAND变量没有生效，也就是打开log文件里log的记录格式没有改变，后来发现用户环境变量重置了PROMPT-COMMAND" class="headerlink" title="添加完发现PROMPT_COMMAND变量没有生效，也就是打开log文件里log的记录格式没有改变，后来发现用户环境变量重置了PROMPT_COMMAND"></a>添加完发现PROMPT_COMMAND变量没有生效，也就是打开log文件里log的记录格式没有改变，后来发现用户环境变量重置了PROMPT_COMMAND</h3><h2 id="第一步："><a href="#第一步：" class="headerlink" title="第一步："></a>第一步：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gedit  /etc/bash.bashrc</span><br></pre></td></tr></table></figure>
+<p>将下面这一段注释掉</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#case $&#123;TERM&#125; in</span><br><span class="line">#  xterm*|rxvt*|Eterm|aterm|kterm|gnome*)</span><br><span class="line">#    PROMPT_COMMAND=$&#123;PROMPT_COMMAND:+$PROMPT_COMMAND; &#125;&apos;printf &quot;\033]0;%s@%s:%s\007&quot; &quot;$&#123;USER&#125;&quot; &quot;$&#123;HOSTNAME%%.*&#125;&quot; &quot;$&#123;PWD/#$HOME/\~&#125;&quot;&apos;</span><br><span class="line"></span><br><span class="line">#    ;;</span><br><span class="line">#  screen*)</span><br><span class="line">#    PROMPT_COMMAND=$&#123;PROMPT_COMMAND:+$PROMPT_COMMAND; &#125;&apos;printf &quot;\033_%s@%s:%s\033\\&quot; &quot;$&#123;USER&#125;&quot; &quot;$&#123;HOSTNAME%%.*&#125;&quot; &quot;$&#123;PWD/#$HOME/\~&#125;&quot;&apos;</span><br><span class="line">#    ;;</span><br><span class="line">#esac</span><br></pre></td></tr></table></figure>
+<h2 id="第二步："><a href="#第二步：" class="headerlink" title="第二步："></a>第二步：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gedit   ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>将下面这一段注释掉</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Change the window title of X terminals</span><br><span class="line">#case $&#123;TERM&#125; in</span><br><span class="line">#	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)</span><br><span class="line">#		PROMPT_COMMAND=&apos;echo -ne &quot;\033]0;$&#123;USER&#125;@$&#123;HOSTNAME%%.*&#125;:$&#123;PWD/#$HOME/\~&#125;\007&quot;&apos;</span><br><span class="line">#		;;</span><br><span class="line">#	screen*)</span><br><span class="line">#		PROMPT_COMMAND=&apos;echo -ne &quot;\033_$&#123;USER&#125;@$&#123;HOSTNAME%%.*&#125;:$&#123;PWD/#$HOME/\~&#125;\033\\&quot;&apos;</span><br><span class="line">#		;;</span><br><span class="line">#esac</span><br></pre></td></tr></table></figure>
+<h2 id="第三步："><a href="#第三步：" class="headerlink" title="第三步："></a>第三步：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source  /etc/bash.bashrc</span><br><span class="line">source  ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>这一刻history.log中的格式就已经改为命令审计中设置的格式</p>
+<h1 id="zsh配置"><a href="#zsh配置" class="headerlink" title="zsh配置"></a>zsh配置</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /opt/history/</span><br><span class="line">sudo chmod 777 /opt/history</span><br></pre></td></tr></table></figure>
+<p>gedit ~/.zshrc</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#history</span><br><span class="line">export HISTSIZE=4096</span><br><span class="line">DT=`date +&quot;%Y-%m-%d&quot;`</span><br><span class="line">export HISTFILE=&quot;/opt/history/$&#123;LOGNAME&#125;_history.log&quot;</span><br><span class="line">chmod 600 /opt/history/$&#123;LOGNAME&#125; 2&gt;/dev/null</span><br><span class="line">export PROMPT_COMMAND=&apos;&#123; date &quot;+%Y-%m-%d %T  #### $(whoami)  #### $(history 1 | &#123; read x cmd; echo &quot;$cmd&quot;; &#125;)&quot;; &#125;&gt;&gt;$HISTFILE&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source   ~/.zshrc</span><br><span class="line">``</span><br></pre></td></tr></table></figure>
+
+<p>查看history</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fc -li</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>manjaro</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MANJARO 安装配置</title>
+    <url>/2019/11/12/01.MANJARO%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="更改manjaro的国内源"><a href="#更改manjaro的国内源" class="headerlink" title="更改manjaro的国内源"></a>更改manjaro的国内源</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank</span><br><span class="line">sudo pacman -Syy</span><br></pre></td></tr></table></figure><a id="more"></a>
+<h1 id="设置archlinux国内源"><a href="#设置archlinux国内源" class="headerlink" title="设置archlinux国内源"></a>设置archlinux国内源</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pacman -S gedit</span><br><span class="line">sudo gedit /etc/pacman.conf</span><br></pre></td></tr></table></figure>
+<p>写入如下内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
+<p>执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pacman -Syy </span><br><span class="line">sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+<h1 id="更改项目文件英文名"><a href="#更改项目文件英文名" class="headerlink" title="更改项目文件英文名"></a>更改项目文件英文名</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pacman -S xdg-user-dirs-gtk</span><br><span class="line">export LANG=en_US</span><br><span class="line">xdg-user-dirs-gtk-update    #然后会有个窗口提示语言更改，更新名称即可</span><br><span class="line">export LANG=zh_CN.UTF-8     #然后重启电脑如果提示语言更改，保留旧的名称即可</span><br></pre></td></tr></table></figure>
+<h1 id="安装搜狗输入法"><a href="#安装搜狗输入法" class="headerlink" title="安装搜狗输入法"></a>安装搜狗输入法</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pacman -S fcitx-im </span><br><span class="line">sudo pacman -S fcitx-configtool</span><br><span class="line">sudo pacman -S fcitx-sogoupinyin</span><br><span class="line">sudo pacman -S fcitx-qt4</span><br></pre></td></tr></table></figure>
+<p>注意：截至到2019.07.07，搜狗拼音的版本fcitx-sogoupiny为2.2.X，需要fcitx-qt4支持，但是ArchLinux已经从Comminuty库中删除了fcitx-qt4，默认会安装fcitx-qt5，因此搜狗输入法安装后不会起作用，我这里是重新安装了fcitx-qt4，配置完成之后搜狗输入法可以正常使用</p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gedit  ~/.xprofile</span><br></pre></td></tr></table></figure>
+
+<p>写入如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure>
+<p>重启电脑之后搜狗输入法就可以正常使用了</p>
+<h1 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pacman -S yay</span><br><span class="line">sudo hwclock --systohc --localtime  #解决双系统时间不一致问题</span><br><span class="line">sudo pacman -S base-devel #安装deepin微信需要的依赖</span><br><span class="line">yay -S deepin.com.qq.office</span><br><span class="line">yay -S deepin-wine-wechat</span><br><span class="line">sudo pacman -S electronic-wechat</span><br><span class="line">sudo pacman -S visual-studio-code-bin</span><br><span class="line">sudo pacman -S deepin-screenshot #深度截图</span><br><span class="line">sudo pacman -S deepin-terminal   #深度终端</span><br><span class="line">sudo pacman -S deepin-file-manager  #深度文件管理器</span><br><span class="line">sudo pacman -S screenfetch</span><br><span class="line">sudo pacman -S google-chrome</span><br><span class="line">sudo pacman -S open-vm-tools      #虚拟机安装vmware-tools</span><br><span class="line">sudo pacman -S pepper-flash</span><br><span class="line">sudo pacman -S flashplugin</span><br><span class="line">sudo pacman -S wps-office</span><br><span class="line">sudo pacman -S ttf-wps-fonts</span><br><span class="line">sudo pacman -S thefuck</span><br><span class="line">sudo pacman -S terminator</span><br><span class="line">sudo pacman -S anaconda</span><br><span class="line">sudo pacman -S typora</span><br><span class="line">yay -S wps-office-mui-zh-cn  #解决wps默认显示为英文问题</span><br><span class="line">sudo pacman -S netease-cloud-music</span><br><span class="line">pacman -S --noconfirm XXX  # --noconfirm隐藏每次安装软解时的是否确认安装提示</span><br></pre></td></tr></table></figure>
+<h2 id="解决网易云音乐无法输入中文"><a href="#解决网易云音乐无法输入中文" class="headerlink" title="解决网易云音乐无法输入中文"></a>解决网易云音乐无法输入中文</h2><p>参考 <a href="https://aur.archlinux.org/packages/netease-cloud-music/" target="_blank" rel="noopener">https://aur.archlinux.org/packages/netease-cloud-music/</a><br>大致思路：<br>使用@springzfx 提供的代码编译qcef， <a href="https://github.com/springzfx/archlinux/tree/master/netease-cloud-music" target="_blank" rel="noopener">https://github.com/springzfx/archlinux/tree/master/netease-cloud-music</a> 使用@laomocode 提供的PKGBUILD文件编译安装网易云音乐  <a href="https://gitee.com/laomocode/netease-cloud-music" target="_blank" rel="noopener">https://gitee.com/laomocode/netease-cloud-music</a><br>，完美解决<br>分别下载两个链接中的文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#安装依赖</span><br><span class="line">sudo pacman -S gconf</span><br><span class="line">sudo pacman -S qt5-webchannel</span><br><span class="line">sudo pacman -S cmake</span><br><span class="line">sudo pacman -S qt5-tools</span><br><span class="line">#编译qcer1719108869217191088692</span><br><span class="line">cd qcef</span><br><span class="line">makepkg -si</span><br><span class="line">cd netease-cloud-music</span><br><span class="line">makepkg -si</span><br><span class="line">sudo gedit /opt/netease/netease-cloud-music/netease-cloud-music.bash</span><br><span class="line">将下面第一句注释掉，并加入第二句</span><br><span class="line">#export LD_LIBRARY_PATH=&quot;$&#123;HERE&#125;&quot;/libs</span><br><span class="line">export LD_LIBRARY_PATH=/usr/lib</span><br></pre></td></tr></table></figure>
+<p>此时无法输入中文的问题已解决</p>
+<h2 id="解决网易云音乐双标题栏问题"><a href="#解决网易云音乐双标题栏问题" class="headerlink" title="解决网易云音乐双标题栏问题"></a>解决网易云音乐双标题栏问题</h2><p>在网易云音乐桌面图标右键》编辑启动器》<br>把命令修改为  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env XDG_CURRENT_DESKTOP=DDE  netease-cloud-music  %U</span><br></pre></td></tr></table></figure>
+<h2 id="解决网易云音乐打开默认全屏，无法缩小窗口"><a href="#解决网易云音乐打开默认全屏，无法缩小窗口" class="headerlink" title="解决网易云音乐打开默认全屏，无法缩小窗口"></a>解决网易云音乐打开默认全屏，无法缩小窗口</h2><p>参考 <a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=155383&amp;extra=" target="_blank" rel="noopener">https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=155383&amp;extra=</a></p>
+<p>删除  ~/.cache/netease-cloud-music 目录</p>
+<h1 id="安装中文字体"><a href="#安装中文字体" class="headerlink" title="安装中文字体"></a>安装中文字体</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pacman -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei</span><br><span class="line">sudo pacman -S noto-fonts-cjk adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts</span><br><span class="line">sudo pacman -S ttf-ubuntu-font-family</span><br></pre></td></tr></table></figure>
+<h1 id="美化主题包安装"><a href="#美化主题包安装" class="headerlink" title="美化主题包安装"></a>美化主题包安装</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pacman  -S paper-icon-theme</span><br><span class="line">sudo pacman  -S mcmojave-circle-icon-theme-git</span><br><span class="line">sudo pacman  -S human-icon-theme</span><br><span class="line">sudo pacman  -S deepin-iconthemes-manjaro</span><br><span class="line">sudo pacman  -S andromeda-icon-theme</span><br></pre></td></tr></table></figure>
+
+<h1 id="pacman-常用命令"><a href="#pacman-常用命令" class="headerlink" title="pacman 常用命令"></a>pacman 常用命令</h1><h2 id="更新系统"><a href="#更新系统" class="headerlink" title="更新系统"></a>更新系统</h2><p>在 Archlinux系 中，使用一条命令即可对整个系统进行更新：<br>pacman -Syu<br>如果你已经使用pacman -Sy将本地的包数据库与远程的仓库进行了同步，也可以只执行：pacman -Su</p>
+<h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><p>➔ pacman -S 包名：例如，执行 pacman -S firefox 将安装 Firefox。你也可以同时安装多个包，<br>只需以空格分隔包名即可。<br>➔ pacman -Sy 包名：与上面命令不同的是，该命令将在同步包数据库后再执行安装。<br>➔ pacman -Sv 包名：在显示一些操作信息后执行安装。<br>➔ pacman -U：安装本地包，其扩展名为 pkg.tar.gz。<br>➔ pacman -U <a href="http://www.example.com/repo/example.pkg.tar.xz" target="_blank" rel="noopener">http://www.example.com/repo/example.pkg.tar.xz</a> 安装一个远程包（不在 pacman 配置的源里面）</p>
+<h2 id="删除包"><a href="#删除包" class="headerlink" title="删除包"></a>删除包</h2><p>➔ pacman -R 包名：该命令将只删除包，保留其全部已经安装的依赖关系<br>➔ pacman -Rs 包名：在删除包的同时，删除其所有没有被其他已安装软件包使用的依赖关系<br>➔ pacman -Rsc 包名：在删除包的同时，删除所有依赖这个软件包的程序<br>➔ pacman -Rd 包名：在删除包时不检查依赖。</p>
+<h2 id="搜索包"><a href="#搜索包" class="headerlink" title="搜索包"></a>搜索包</h2><p>➔ pacman -Ss 关键字：在仓库中搜索含关键字的包。<br>➔ pacman -Qs 关键字： 搜索已安装的包。<br>➔ pacman -Qi 包名：查看有关包的详尽信息。<br>➔ pacman -Ql 包名：列出该包的文件。</p>
+<h2 id="其他用法"><a href="#其他用法" class="headerlink" title="其他用法"></a>其他用法</h2><p>➔ pacman -Sw 包名：只下载包，不安装。<br>➔ pacman -Sc：清理未安装的包文件，包文件位于 /var/cache/pacman/pkg/ 目录。<br>➔ pacman -Scc：清理所有的缓存文件。</p>
+<p>本文参考 ： <a href="https://www.jianshu.com/p/e878f1e36ff4" target="_blank" rel="noopener">https://www.jianshu.com/p/e878f1e36ff4</a></p>
+<h1 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="终端代理（本人已弃用此方法，改用v2raya）"><a href="#终端代理（本人已弃用此方法，改用v2raya）" class="headerlink" title="终端代理（本人已弃用此方法，改用v2raya）"></a>终端代理（本人已弃用此方法，改用v2raya）</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yay -S proxychains-ng</span><br></pre></td></tr></table></figure>
+<p>编辑<code>proxychains.conf</code>文件，将socks4 127.0.0.1 9095修改为socks5 127.0.0.1 1080</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gedit /etc/proxychains.conf</span><br><span class="line">#找到最后一行，修改为</span><br><span class="line">socks5 127.0.0.1 1080</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">proxychains curl www.google.com</span><br></pre></td></tr></table></figure>
+<p>参考链接<br><a href="https://oceandlnu.github.io/2018/05/29/Manjaro%20%E6%97%A5%E5%B8%B8%E9%85%8D%E7%BD%AE/" target="_blank" rel="noopener">https://oceandlnu.github.io/2018/05/29/Manjaro%20%E6%97%A5%E5%B8%B8%E9%85%8D%E7%BD%AE/</a></p>
+<h1 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yay -S v2raya</span><br></pre></td></tr></table></figure>
+<p>点击v2raya图标<br>自定义账号密码</p>
+<p>配置ssr链接后终端和浏览器都可以科学上网，无需其他配置</p>
+]]></content>
+      <categories>
+        <category>manjaro</category>
+      </categories>
+  </entry>
+</search>
