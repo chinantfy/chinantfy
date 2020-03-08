@@ -432,6 +432,21 @@
 <div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">local_search:</span><br><span class="line">    enable: true</span><br></pre></td></tr></table></figure></div>
 
 <p>重新部署就可以使用搜索功能</p>
+<h1 id="Butterfly主题"><a href="#Butterfly主题" class="headerlink" title="Butterfly主题"></a>Butterfly主题</h1><blockquote>
+<p>文章置顶设置   </p>
+</blockquote>
+<ul>
+<li>打开hexo 工作目录</li>
+<li>npm uninstall hexo-generator-index –save 然后 npm install hexo-generator-index-pin-top –save</li>
+<li>在文章的front-matter区域添加top: True属性</li>
+<li>可以参考 hexo-generator-index-pin-top仓库了解更多细节。   </li>
+</ul>
+<p>例如：</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: xxxx</span><br><span class="line">tags:</span><br><span class="line">  - xxx</span><br><span class="line">date: 2018-08-08 08:08:08</span><br><span class="line">top: True</span><br><span class="line">---</span><br><span class="line">// ....</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>来源参考：<a href="https://jerryc.me/posts/21cfbf15/" target="_blank" rel="noopener">https://jerryc.me/posts/21cfbf15/</a></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>hexo</category>

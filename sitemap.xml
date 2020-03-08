@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chinantfy.gitee.io/2019/11/18/05.hexo%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/</loc>
+    
+    <lastmod>2020-03-08T06:21:08.411Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chinantfy.gitee.io/2019/11/12/01.MANJARO%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2020-03-08T06:14:15.570Z</lastmod>
@@ -37,13 +44,6 @@
   </url>
   
   <url>
-    <loc>https://chinantfy.gitee.io/2019/11/18/05.hexo%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/</loc>
-    
-    <lastmod>2020-02-24T15:36:17.904Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://chinantfy.gitee.io/2019/11/17/06.hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E5%9B%BE%E7%89%87/</loc>
     
     <lastmod>2020-02-24T15:36:17.904Z</lastmod>
@@ -72,14 +72,14 @@
   </url>
   
   <url>
-    <loc>https://chinantfy.gitee.io/categories/index.html</loc>
+    <loc>https://chinantfy.gitee.io/archives/index.html</loc>
     
     <lastmod>2020-02-24T15:36:17.904Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://chinantfy.gitee.io/archives/index.html</loc>
+    <loc>https://chinantfy.gitee.io/categories/index.html</loc>
     
     <lastmod>2020-02-24T15:36:17.904Z</lastmod>
     
