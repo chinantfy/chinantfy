@@ -2,37 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://chinantfy.gitee.io/2019/11/18/05.hexo%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/</loc>
+    <loc>https://chinantfy.gitee.io/2020/01/11/09.python%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</loc>
     
-    <lastmod>2020-03-08T06:21:08.411Z</lastmod>
+    <lastmod>2020-03-10T08:28:45.829Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://chinantfy.gitee.io/2019/11/12/01.MANJARO%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
     
-    <lastmod>2020-03-08T06:14:15.570Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chinantfy.gitee.io/2020/01/11/09.python%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2020-02-29T16:18:11.516Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chinantfy.gitee.io/2020/01/11/08.anaconda%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2020-02-29T16:01:13.802Z</lastmod>
+    <lastmod>2020-03-08T11:33:30.834Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://chinantfy.gitee.io/2020/02/24/10.git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     
-    <lastmod>2020-02-24T16:25:59.264Z</lastmod>
+    <lastmod>2020-03-08T10:44:39.720Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chinantfy.gitee.io/2020/01/11/08.anaconda%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2020-03-08T10:44:32.196Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chinantfy.gitee.io/2019/11/17/06.hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E5%9B%BE%E7%89%87/</loc>
+    
+    <lastmod>2020-03-08T10:44:21.196Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chinantfy.gitee.io/2019/11/18/05.hexo%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/</loc>
+    
+    <lastmod>2020-03-08T10:44:11.109Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chinantfy.gitee.io/2019/11/12/03.vscode%E5%8E%BB%E9%99%A4%E6%A0%87%E9%A2%98%E6%A0%8F/</loc>
+    
+    <lastmod>2020-03-08T10:43:54.692Z</lastmod>
     
   </url>
   
@@ -44,21 +58,7 @@
   </url>
   
   <url>
-    <loc>https://chinantfy.gitee.io/2019/11/17/06.hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E5%9B%BE%E7%89%87/</loc>
-    
-    <lastmod>2020-02-24T15:36:17.904Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://chinantfy.gitee.io/2019/11/17/04.%E5%AE%89%E8%A3%85nexo%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A0%81%E4%BA%91/</loc>
-    
-    <lastmod>2020-02-24T15:36:17.904Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chinantfy.gitee.io/2019/11/12/03.vscode%E5%8E%BB%E9%99%A4%E6%A0%87%E9%A2%98%E6%A0%8F/</loc>
     
     <lastmod>2020-02-24T15:36:17.904Z</lastmod>
     
